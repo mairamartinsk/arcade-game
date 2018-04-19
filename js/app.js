@@ -70,6 +70,8 @@ allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6, bug7);
 
 // Place the player object in a variable called player
 var player = new Player();
+player.x = 300;
+player.y = 400;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
