@@ -49,6 +49,28 @@ var bug5 = new Enemy();
 var bug6 = new Enemy();
 var bug7 = new Enemy();
 
+// Static position all enemies
+bug1.x = 10;
+bug1.y = 60;
+
+bug2.x = 400;
+bug2.y = 60;
+
+bug3.x = 200;
+bug3.y = 150;
+
+bug4.x = 80;
+bug4.y = 150;
+
+bug5.x = -50;
+bug5.y = 230;
+
+bug6.x = 450;
+bug6.y = 230;
+
+bug7.x = 240;
+bug7.y = 230;
+
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6, bug7);
