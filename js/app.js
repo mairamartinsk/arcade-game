@@ -33,7 +33,22 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function() {};
+Player.prototype.handleInput = function(move) {
+  switch (move) {
+    case "up":
+      this.y = this.y - 82;
+      break;
+    case "down":
+      this.y = this.y + 82;
+      break;
+    case "left":
+      this.x = this.x - 100;
+      break;
+    case "right":
+      this.x = this.x + 100;
+      break;
+  }
+};
 
 // Now instantiate your objects.
 var bug1 = new Enemy();
@@ -82,6 +97,5 @@ document.addEventListener("keyup", function(e) {
     39: "right",
     40: "down"
   };
-
   player.handleInput(allowedKeys[e.keyCode]);
 });
