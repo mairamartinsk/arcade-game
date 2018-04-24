@@ -4,12 +4,25 @@ var Enemy = function(x, y) {
   this.sprite = "images/enemy-bug.png";
   this.x = x;
   this.y = y;
+  this.speed;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  this.x = this.x * dt;
+  if (this.y === 72) {
+    this.speed = 220;
+  } else if (this.y === 154) {
+    this.speed = 170;
+  } else if (this.y === 236) {
+    this.speed = 120;
+  }
+
+  if (this.x <= 500) {
+    this.x += this.speed * dt;
+  } else {
+    this.x = -100;
+  }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -36,32 +49,47 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(move) {
   switch (move) {
     case "up":
-      this.y = this.y - 82;
+      if (this.y === -10) {
+        this.y = this.y;
+      } else {
+        this.y -= 82;
+      }
       break;
     case "down":
-      this.y = this.y + 82;
+      if (this.y === 400) {
+        this.y = this.y;
+      } else {
+        this.y += 82;
+      }
       break;
     case "left":
-      this.x = this.x - 100;
+      if (this.x === 0) {
+        this.x = this.x;
+      } else {
+        this.x -= 100;
+      }
       break;
     case "right":
-      this.x = this.x + 100;
+      if (this.x === 400) {
+        this.x = this.x;
+      } else {
+        this.x += 100;
+      }
       break;
   }
 };
 
 // Now instantiate your objects.
 var bug1 = new Enemy(0, 72);
-var bug2 = new Enemy(0, 72);
-var bug3 = new Enemy(0, 154);
-var bug4 = new Enemy(0, 154);
+var bug2 = new Enemy(200, 72);
+var bug3 = new Enemy(100, 154);
+var bug4 = new Enemy(300, 154);
 var bug5 = new Enemy(0, 236);
-var bug6 = new Enemy(0, 236);
-var bug7 = new Enemy(0, 236);
+var bug6 = new Enemy(400, 236);
 
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6, bug7);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
 
 // Place the player object in a variable called player
 var player = new Player(300, 400);
