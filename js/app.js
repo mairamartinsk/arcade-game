@@ -1,4 +1,4 @@
-// Enemies our player must avoid
+// Enemies class
 var Enemy = function(x, y) {
   // The image/sprite for our enemies
   this.sprite = "images/enemy-bug.png";
@@ -18,10 +18,20 @@ Enemy.prototype.update = function(dt) {
     this.speed = 120;
   }
 
+  // If enemy reaches end of canvas, reposition it
   if (this.x <= 500) {
     this.x += this.speed * dt;
+    this.x = Math.floor(this.x);
   } else {
     this.x = -100;
+  }
+
+  // Detect collision
+  if (Math.abs(this.y - player.y) === 0) {
+    if (Math.abs(this.x - player.x) < 75) {
+      player.x = 200;
+      player.y = 400;
+    }
   }
 };
 
@@ -29,6 +39,18 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+// Instantiate all enemies
+var bug1 = new Enemy(0, 72);
+var bug2 = new Enemy(200, 72);
+var bug3 = new Enemy(100, 154);
+var bug4 = new Enemy(300, 154);
+var bug5 = new Enemy(0, 236);
+var bug6 = new Enemy(400, 236);
+
+// Place all enemy objects in an array called allEnemies
+var allEnemies = [];
+allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
 
 // Player class
 // Requires update(), render() and handleInput() methods
@@ -38,7 +60,7 @@ var Player = function(x, y) {
   this.y = y;
 };
 
-// Update the player's position
+// Update the player's position in case of collision
 Player.prototype.update = function(dt) {};
 
 // Draw the player on the screen
@@ -46,6 +68,7 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Control player movement using arrow keys
 Player.prototype.handleInput = function(move) {
   switch (move) {
     case "up":
@@ -79,20 +102,8 @@ Player.prototype.handleInput = function(move) {
   }
 };
 
-// Now instantiate your objects.
-var bug1 = new Enemy(0, 72);
-var bug2 = new Enemy(200, 72);
-var bug3 = new Enemy(100, 154);
-var bug4 = new Enemy(300, 154);
-var bug5 = new Enemy(0, 236);
-var bug6 = new Enemy(400, 236);
-
-// Place all enemy objects in an array called allEnemies
-var allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
-
-// Place the player object in a variable called player
-var player = new Player(300, 400);
+// Create the player object
+var player = new Player(200, 400);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
