@@ -132,6 +132,16 @@ var getGemY = function getY() {
   return gemY[Math.floor(Math.random() * gemY.length)];
 };
 
+// Implement gem collection mechanism
+Gem.prototype.update = function() {
+  // If player gets to gem, remove it from board
+  if (Math.abs(this.y - player.y) === 0) {
+    if (Math.abs(this.x - player.x) < 75) {
+      this.x = -500;
+    }
+  }
+};
+
 // Draw the Gems on the screen
 Gem.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
