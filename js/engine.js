@@ -9,7 +9,7 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
@@ -93,6 +93,13 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+
+        // Run update() for each gem in allGems array
+        allGems.forEach(function(gem) {
+            gem.update(dt);
+        });
+
+        key.update();
         player.update();
     }
 
@@ -149,11 +156,20 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+
+
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
+        // Render() each gem in allGems array
+        allGems.forEach(function(gem) {
+            gem.render();
+        });
+
+        key.render();
         player.render();
+
     }
 
     /* This function does nothing but it could have been a good place to
