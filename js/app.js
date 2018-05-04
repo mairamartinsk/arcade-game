@@ -1,23 +1,14 @@
 // Enemies class
 var Enemy = function(x, y) {
-  // The image/sprite for our enemies
   this.sprite = "images/enemy-bug.png";
   this.x = x;
   this.y = y;
-  this.speed;
+  this.speed = Math.floor((Math.random() * 200) + 100);
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  if (this.y === 72) {
-    this.speed = 220;
-  } else if (this.y === 154) {
-    this.speed = 170;
-  } else if (this.y === 236) {
-    this.speed = 120;
-  }
-
   // If enemy reaches end of canvas, reposition it
   if (this.x <= 500) {
     this.x += this.speed * dt;
@@ -44,13 +35,12 @@ Enemy.prototype.render = function() {
 var bug1 = new Enemy(0, 72);
 var bug2 = new Enemy(200, 72);
 var bug3 = new Enemy(100, 154);
-var bug4 = new Enemy(300, 154);
-var bug5 = new Enemy(0, 236);
-var bug6 = new Enemy(400, 236);
+var bug4 = new Enemy(0, 236);
+var bug5 = new Enemy(100, 318);
 
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 // Player class
 // Requires update(), render() and handleInput() methods
