@@ -168,6 +168,19 @@ Key.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Implement key collection mechanism
+Key.prototype.update = function() {
+  // Check if all gems are collected
+  if (gem1.x === -500 && gem2.x === -500 && gem3.x === -500) {
+    // If player collects key, remove it from board
+    if (Math.abs(this.y - player.y) === 0) {
+      if (Math.abs(this.x - player.x) < 75) {
+        this.x = -500;
+        gameWin();
+      }
+    }
+  }
+};
 
 // Generate key
 var key = new Key(getGemX());
