@@ -212,3 +212,14 @@ function gameStart() {
   };
 }
 
+// Display modal game-over after player dies
+function gameOver() {
+  var gameOverModal = document.querySelector('.game-over');
+  gameOverModal.style.display = "block";
+}
+
+// Display modal game-win after player wins game
+function gameWin() {
+  var gameWinModal = document.querySelector('.game-win');
+  gameWinModal.style.display = "block";
+}
