@@ -13,4 +13,18 @@ ul, li {
   padding: 0;
 }
 
+/* ********************************* */
+/* SCORE PANEL STYLES */
+/* ********************************* */
+
+.score-panel {
+  width: 505px;
+  margin: 0 auto -2rem;
+  text-align: right;
+}
+
+.hearts img {
+  max-width: 32px;
+}
+
 }
