@@ -1,3 +1,16 @@
+/* ********************************* */
+/* GLOBAL STYLES */
+/* ********************************* */
+
 body {
-    text-align: center;
+  text-align: center;
+  font-family: "VT323", monospace;
+  color: #1f363d;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
 }
