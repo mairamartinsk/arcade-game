@@ -196,3 +196,19 @@ function showLives(num) {
   }
 }
 
+// Display modal game-start when game starts
+document.addEventListener("DOMContentLoaded", gameStart);
+
+function gameStart() {
+  var gameStartModal = document.querySelector('.game-start');
+  var modal = document.querySelector('.modal');
+  gameStartModal.style.display = "block";
+
+  // If user clicks outside pop-up, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
