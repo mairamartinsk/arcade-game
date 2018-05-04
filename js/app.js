@@ -216,10 +216,20 @@ function gameStart() {
 function gameOver() {
   var gameOverModal = document.querySelector('.game-over');
   gameOverModal.style.display = "block";
+
+  var restartButton = document.querySelector('.--over');
+  restartButton.addEventListener('click', function() {
+    location.reload();
+  });
 }
 
 // Display modal game-win after player wins game
 function gameWin() {
   var gameWinModal = document.querySelector('.game-win');
   gameWinModal.style.display = "block";
+
+  var restartButton = document.querySelector('.--win');
+  restartButton.addEventListener('click', function() {
+    location.reload();
+  });
 }
