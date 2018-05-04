@@ -113,3 +113,14 @@ document.addEventListener("keyup", function(e) {
   };
   player.handleInput(allowedKeys[e.keyCode]);
 });
+// Generate html to display hearts-lives
+function showLives(num) {
+  var lives = document.querySelector('.hearts');
+  var heartHtml = '<img src="images/Heart.png">';
+  lives.innerHTML = "";
+
+  for (let i = 0; i < num; i++) {
+    lives.innerHTML += heartHtml;
+  }
+}
+
