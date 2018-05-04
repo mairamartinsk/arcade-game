@@ -156,6 +156,22 @@ var gem3 = new Gem("images/Gem Orange.png", getGemX(), getGemY());
 var allGems = [];
 allGems.push(gem1, gem2, gem3);
 
+// Key Class
+var Key = function(x) {
+  this.sprite = "images/Key.png";
+  this.x = x;
+  this.y = -10;
+};
+
+// Render Key on canvas
+Key.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+
+// Generate key
+var key = new Key(getGemX());
+
 // Generate html to display hearts-lives
 function showLives(num) {
   var lives = document.querySelector('.hearts');
