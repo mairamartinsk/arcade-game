@@ -17,11 +17,15 @@ Enemy.prototype.update = function(dt) {
     this.x = -100;
   }
 
-  // Detect collision
+  // Detect collision and restart Player position
   if (Math.abs(this.y - player.y) === 0) {
     if (Math.abs(this.x - player.x) < 75) {
       player.x = 200;
       player.y = 400;
+      player.lives--;
+      if (player.lives === 0) {
+        gameOver();
+      }
     }
   }
 };
@@ -43,15 +47,18 @@ var allEnemies = [];
 allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 // Player class
-// Requires update(), render() and handleInput() methods
 var Player = function(x, y) {
-  this.sprite = "images/char-boy.png";
+  this.sprite = "images/char-princess-girl.png";
   this.x = x;
   this.y = y;
+  this.speed;
+  this.lives = 3;
 };
 
-// Update the player's position in case of collision
-Player.prototype.update = function(dt) {};
+// Required method
+Player.prototype.update = function() {
+  showLives(this.lives);
+};
 
 // Draw the player on the screen
 Player.prototype.render = function() {
