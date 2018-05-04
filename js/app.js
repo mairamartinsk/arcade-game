@@ -121,6 +121,17 @@ var Gem = function(sprite, x, y) {
   this.y = y;
 };
 
+// Generate random X and Y coordinates for each Gem
+var getGemX = function getX() {
+  var gemX = [0, 100, 200, 300, 400];
+  return gemX[Math.floor(Math.random() * gemX.length)];
+};
+
+var getGemY = function getY() {
+  var gemY = [72, 154, 236, 318];
+  return gemY[Math.floor(Math.random() * gemY.length)];
+};
+
 // Draw the Gems on the screen
 Gem.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
