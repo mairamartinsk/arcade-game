@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
-    <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
   <title>Save the Princess Arcade Game</title>
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet prefetch">
@@ -15,6 +12,60 @@
     <ul class="hearts"></ul>
   </div>
 
+  <!-- GameStart Modal -->
+  <div class="modal game-start">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>The Lost Jewels</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>How to Play:</strong></p>
+        <p>Princess Lila needs your help!</p>
+        <p>The Crown's Jewels got lost in the palace's gardens. Help Lila collect all the lost Jewels, but avoid getting bitten by the bugs!</p>
+        <p>Once you collect all Jewels, get the Key to the palace's safe. You have 3 chances to help Lila.</p>
+        <p><strong>Click outside of this pop-up to start.</strong></p>
+      </div>
+      <div class="modal-footer">
+        <p class="credit">code and love by <a href="https://github.com/mairamartinsk" target="_blank" class="credit">@mairamartinsk</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GameOver Modal -->
+  <div class="modal game-over">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Oh no!</h2>
+      </div>
+      <div class="modal-body">
+        <p>You got bitten by the bugs and lost all your 3 lives!</p>
+        <p>If you'd like to drink an Antidote and continue your quest to help Princess Lila, click on the button below.</p>
+        <button class="restart --over">Play Again</button>
+      </div>
+      <div class="modal-footer">
+        <p class="credit">code and love by <a href="https://github.com/mairamartinsk" target="_blank" class="credit">@mairamartinsk</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GameWin Modal -->
+  <div class="modal game-win">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>You made it!</h2>
+      </div>
+      <div class="modal-body">
+        <p>You collected all the lost Crown's Jewels, retrieved the key to the palace's safe and avoided the bugs.</p>
+        <p>Princess Lila will be forever grateful for your help!</p>
+        <p>If you'd like to help her on a new quest, click on the button below.</p>
+        <span class="hearts"></span>
+        <button class="restart --win">Play Again</button>
+      </div>
+      <div class="modal-footer">
+        <p class="credit">code and love by <a href="https://github.com/mairamartinsk" target="_blank" class="credit">@mairamartinsk</a></p>
+      </div>
+    </div>
+  </div>
 
   <script src="js/resources.js"></script>
   <script src="js/app.js"></script>
