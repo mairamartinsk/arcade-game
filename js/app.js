@@ -113,6 +113,28 @@ document.addEventListener("keyup", function(e) {
   };
   player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// Gem class
+var Gem = function(sprite, x, y) {
+  this.sprite = sprite;
+  this.x = x;
+  this.y = y;
+};
+
+// Draw the Gems on the screen
+Gem.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+// Instantiate all three Gems
+var gem1 = new Gem("images/Gem Blue.png", getGemX(), getGemY());
+var gem2 = new Gem("images/Gem Green.png", getGemX(), getGemY());
+var gem3 = new Gem("images/Gem Orange.png", getGemX(), getGemY());
+
+// Place all Gems in an array called allGems
+var allGems = [];
+allGems.push(gem1, gem2, gem3);
+
 // Generate html to display hearts-lives
 function showLives(num) {
   var lives = document.querySelector('.hearts');
